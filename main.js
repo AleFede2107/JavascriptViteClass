@@ -48,7 +48,13 @@ const addTask = (event) =>{
   }
 
   tasks.push(newTask)
-  console.log(tasks)
+  
+  tasks.forEach(task => {
+    document.querySelector('#task-list').innerHTML = `
+      <h2>${task.title}</h2>
+      <span>${task.description}</span>
+    `
+  })
 }
 
 document.querySelector('#task-form').addEventListener('submit', addTask);
